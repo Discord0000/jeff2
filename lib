@@ -1188,7 +1188,7 @@ ui = {} do
  scrollConnection = menu_menu:GetPropertyChangedSignal("CanvasPosition"):Connect(handleScrollPos)
  
  menu_scroll.InputBegan:Connect(function(old_input)
- if old_input.UserInputType == Enum.UserInputType.MouseButton1 or old_input.UserInputType == Enum.UserInputType.Touch then
+ if old_input.UserInputType == Enum.UserInputType.MouseButton1 then
  local starting_pos = menu_scroll.Position
  
  scrollConnection:Disconnect()
@@ -1215,7 +1215,7 @@ ui = {} do
  end)
  
  menu_scroll.InputEnded:Connect(function(cur_input)
- if cur_input.UserInputType == Enum.UserInputType.MouseButton1 or cur_input.UserInputType == Enum.UserInputType.Touch then
+ if cur_input.UserInputType == Enum.UserInputType.MouseButton1 then
  pcall(function() 
  ui.cons["ScrollDrag"]:Disconnect() 
  end)
@@ -2224,7 +2224,7 @@ ui = {} do
  
  
  slider_back.InputBegan:Connect(function(input1)
- if input1.UserInputType == Enum.UserInputType.MouseButton1 or input1.UserInputType == Enum.UserInputType.Touch then
+ if input1.UserInputType == Enum.UserInputType.MouseButton1 then
  if not SlowDragging then
  OnFocusGained:Fire(1)
  Focused = true
@@ -2244,7 +2244,7 @@ ui = {} do
  oldv = value
  
  ui.cons[slider_id] = uis.InputChanged:Connect(function(input2)
- if input2.UserInputType == Enum.UserInputType.MouseMovement or input2.UserInputType == Enum.UserInputType.Touch then
+ if input2.UserInputType == Enum.UserInputType.MouseMovement then
  local delta = (input2.Position - input1.Position)
  local x = math.floor(math.clamp(x + delta.X, 0, slider_back.AbsoluteSize.X))
  twn(slider_slider, {Position = UDim2.new(0, x, 0, 0)})
@@ -2271,7 +2271,7 @@ ui = {} do
  local x_2 = slider_slider.Position.X.Offset
  
  ui.cons[slider_id.."2"] = uis.InputChanged:Connect(function(input2)
- if input2.UserInputType == Enum.UserInputType.MouseMovement  or   input2.UserInputType == Enum.UserInputType.Touch then
+ if input2.UserInputType == Enum.UserInputType.MouseMovement then
  local delta = ((input1.Position - input2.Position).x)/5
  
  
@@ -2294,7 +2294,7 @@ ui = {} do
  end)
  
  slider_back.InputEnded:Connect(function(input1)
- if input1.UserInputType == Enum.UserInputType.MouseButton1 or input1.UserInputType == Enum.UserInputType.Touch then
+ if input1.UserInputType == Enum.UserInputType.MouseButton1 then
  if not SlowDragging then
  pcall(function() ui.cons[slider_id]:Disconnect() end)
  
@@ -2302,7 +2302,7 @@ ui = {} do
  Focused = false
  FastDragging = false
  end
- elseif input1.UserInputType == Enum.UserInputType.MouseButton2 or input2.UserInputType == Enum.UserInputType.Touch then
+ elseif input1.UserInputType == Enum.UserInputType.MouseButton2 then
  if not FastDragging then
  pcall(function() ui.cons[slider_id.."2"]:Disconnect() end)
  
