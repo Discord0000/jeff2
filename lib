@@ -130,13 +130,16 @@ local screen = Instance.new("ScreenGui")
 pcall(function() 
  syn.protect_gui(screen)
 end)
-if gethiddengui then
+local lastInput = uis:GetLastInputType()
+if lastInput == Enum.UserInputType.Touch then
+  screen.Parent = game.Players.LocalPlayer.PlayerGui
+  screen.ResetOnSpawn = false
+elseif gethiddengui then
  screen.Parent = gethiddengui()
 elseif gethui then 
  screen.Parent = gethui()
 else
- screen.Parent = game.Players.LocalPlayer.PlayerGui
- screen.ResetOnSpawn = false
+ screen.Parent = game.CoreGui
 end
 
 
