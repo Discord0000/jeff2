@@ -134,6 +134,7 @@ local screen = Instance.new("ScreenGui")
 pcall(function() 
  syn.protect_gui(screen)
 end)
+
 if mobile then
   screen.Parent = game.Players.LocalPlayer.PlayerGui
   screen.ResetOnSpawn = false
@@ -2268,7 +2269,7 @@ ui = {} do
  end
  end)
  end
- elseif mobile and input1.UserInputType == Enum.UserInputType.Touch or input1.UserInputType == Enum.UserInputType.MouseButton2 then
+ elseif input1.UserInputType == Enum.UserInputType.MouseButton2 then
  if not FastDragging then
  OnFocusGained:Fire(2)
  Focused = true
@@ -2301,7 +2302,7 @@ ui = {} do
  end)
  
  slider_back.InputEnded:Connect(function(input1)
- if mobile and input1.UserInputType == Enum.UserInputType.Touch or input1.UserInputType == Enum.UserInputType.MouseButton1 then
+ if input1.UserInputType == Enum.UserInputType.MouseButton1 then
  if not SlowDragging then
  pcall(function() ui.cons[slider_id]:Disconnect() end)
  
@@ -2309,7 +2310,7 @@ ui = {} do
  Focused = false
  FastDragging = false
  end
- elseif mobile and input1.UserInputType == Enum.UserInputType.Touch or  input1.UserInputType == Enum.UserInputType.MouseButton2 then
+ elseif input1.UserInputType == Enum.UserInputType.MouseButton2 then
  if not FastDragging then
  pcall(function() ui.cons[slider_id.."2"]:Disconnect() end)
  
