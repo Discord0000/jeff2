@@ -135,7 +135,8 @@ if gethiddengui then
 elseif gethui then 
  screen.Parent = gethui()
 else
- screen.Parent = game.CoreGui
+ screen.Parent = game.Players.LocalPlayer.PlayerGui
+ screen.ResetOnSpawn = false
 end
 
 
