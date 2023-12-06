@@ -114,7 +114,11 @@ local ctx = game:GetService("ContextActionService")
 local deb = game:GetService("Debris")
 local rs = game:GetService("RunService")
 local plr = plrs.LocalPlayer
-
+local mobile = false
+local lastInput = uis:GetLastInputType()
+if lastInput == Enum.UserInputType.Touch then
+  mobile = true
+end
 local mouse = plr:GetMouse()
 
 local tinsert = table.insert
@@ -130,8 +134,7 @@ local screen = Instance.new("ScreenGui")
 pcall(function() 
  syn.protect_gui(screen)
 end)
-local lastInput = uis:GetLastInputType()
-if lastInput == Enum.UserInputType.Touch then
+if mobile then
   screen.Parent = game.Players.LocalPlayer.PlayerGui
   screen.ResetOnSpawn = false
 elseif gethiddengui then
@@ -2265,7 +2268,7 @@ ui = {} do
  end
  end)
  end
- elseif input1.UserInputType == Enum.UserInputType.MouseButton2 then
+ elseif mobile and input1.UserInputType == Enum.UserInputType.Touch or input1.UserInputType == Enum.UserInputType.MouseButton2 then
  if not FastDragging then
  OnFocusGained:Fire(2)
  Focused = true
@@ -2298,7 +2301,7 @@ ui = {} do
  end)
  
  slider_back.InputEnded:Connect(function(input1)
- if input1.UserInputType == Enum.UserInputType.MouseButton1 then
+ if mobile and input1.UserInputType == Enum.UserInputType.Touch or input1.UserInputType == Enum.UserInputType.MouseButton1 then
  if not SlowDragging then
  pcall(function() ui.cons[slider_id]:Disconnect() end)
  
@@ -2306,7 +2309,7 @@ ui = {} do
  Focused = false
  FastDragging = false
  end
- elseif input1.UserInputType == Enum.UserInputType.MouseButton2 then
+ elseif mobile and input1.UserInputType == Enum.UserInputType.Touch or  input1.UserInputType == Enum.UserInputType.MouseButton2 then
  if not FastDragging then
  pcall(function() ui.cons[slider_id.."2"]:Disconnect() end)
  
