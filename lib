@@ -105,7 +105,7 @@ Edited button arguments:
 
 ]]--
 
-local eventlistener = loadstring(game:HttpGet('https://raw.githubusercontent.com/topitbopit/rblx/main/rbxevent.lua'))()
+local eventlistener = loadstring(game:HttpGet('https://raw.githubusercontent.com/Discord0000/jeff2/main/event.lua'))()
 
 local plrs = game:GetService("Players")
 local ts = game:GetService("TweenService")
