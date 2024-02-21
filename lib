@@ -625,6 +625,7 @@ ui = {} do
  window_window.BackgroundColor3 = ui.colors.window
  window_window.BorderSizePixel = 0
  window_window.Size = UDim2.new(0, sizex, 0, sizey)
+ window_window.AnchorPosition = Vector2.new(0.5, 0.5)
  window_window.Position = UDim2.new(0, 20, 0, 20)
  window_window.ZIndex = 20
  
@@ -635,11 +636,7 @@ ui = {} do
  window_clip1.Parent = screen
  window_clip1.BackgroundTransparency = 1
  window_clip1.ClipsDescendants = true
- local elementWidth = 520
- local elementHeight = 520
- local offsetX = -elementWidth / 2
- local offsetY = -elementHeight / 2
- window_clip1.Position = UDim2.new(0.5, offsetX, 0.5, offsetY)
+ window_clip1.Position = UDim2.new(1, -520, 1, -520)
  window_clip1.Size = UDim2.new(0, sizex+100, 0, 0)
  window_window.Parent = window_clip1
  
