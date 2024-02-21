@@ -625,8 +625,9 @@ ui = {} do
  window_window.BackgroundColor3 = ui.colors.window
  window_window.BorderSizePixel = 0
  window_window.Size = UDim2.new(0, sizex, 0, sizey)
- window_window.AnchorPoint = Vector2.new(0.5, 0.5)
- window_window.Position = UDim2.new(0, 20, 0, 20)
+ local offsetX = -sizex / 2
+ local offsetY = -sizey / 2
+ window_window.Position = UDim2.new(0.5, offsetX, 0.5, offsetY)
  window_window.ZIndex = 20
  
  
@@ -1099,8 +1100,9 @@ ui = {} do
  
  ui.OnReady:Connect(function() 
  window_window.Size = UDim2.new(0, sizex, 0, 0)
- window_window.Position = UDim2.new(0, 20, 0, 20)
- 
+ local offsetX = -sizex / 2
+ local offsetY = -sizey / 2
+ window_window.Position = UDim2.new(0.5, offsetX, 0.5, offsetY)
  
  local a = Instance.new("UIScale")
  a.Scale = 0.25
