@@ -625,7 +625,7 @@ ui = {} do
  window_window.BackgroundColor3 = ui.colors.window
  window_window.BorderSizePixel = 0
  window_window.Size = UDim2.new(0, sizex, 0, sizey)
- window_window.AnchorPosition = Vector2.new(0.5, 0.5)
+ window_window.AnchorPoint = Vector2.new(0.5, 0.5)
  window_window.Position = UDim2.new(0, 20, 0, 20)
  window_window.ZIndex = 20
  
