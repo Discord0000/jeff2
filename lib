@@ -628,6 +628,7 @@ ui = {} do
  local offsetX = -sizex / 2
  local offsetY = -sizey / 2
  window_window.Position = UDim2.new(0.5, offsetX, 0.5, offsetY)
+ window_window.AnchorPoint = Vector2.new(0.5, 0.5)
  window_window.ZIndex = 20
  
  
@@ -1103,7 +1104,7 @@ ui = {} do
  local offsetX = -sizex / 2
  local offsetY = -sizey / 2
  window_window.Position = UDim2.new(0.5, offsetX, 0.5, offsetY)
- 
+ window_window.AnchorPoint = Vector2.new(0.5, 0.5)
  local a = Instance.new("UIScale")
  a.Scale = 0.25
  a.Parent = window_window
@@ -1125,7 +1126,7 @@ ui = {} do
  window_scrollup.Parent = window_topbar
  window_window.Parent = screen
  
- window_window.Position = UDim2.new(1, -500, 1, -500)
+ window_window.Position = UDim2.new(0.5, offsetX, 0.5, offsetY)
  window_clip2:Destroy()
  window_clip1:Destroy()
  drag(window_topbar, window_window)
